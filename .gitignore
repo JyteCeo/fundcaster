@@ -22,3 +22,13 @@ lib/
 broadcast/
 reports/
 
+
+# Ignored System Files
+install
+install.log
+foundryup-zksync
+
+# Ignored Binaries
+cast.1.gz
+forge.1.gz
+foundry_zksync_man_v0.0.13.tar.gz

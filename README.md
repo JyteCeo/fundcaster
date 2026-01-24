@@ -37,48 +37,9 @@ graph TD
 - **Frontend (Phase 2)**: Next.js, RainbowKit, Wagmi
 - **Frames (Phase 3)**: OnchainKit
 
-## 🚀 Getting Started
+##  Getting Started
 
-### Prerequisites
 
-- [Foundry](https://book.getfoundry.sh/getting-started/installation) installed
-- [Git](https://git-scm.com/downloads) installed
-
-### Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/fund-caster.git
-cd fund-caster
-
-# 2. Install dependencies
-make install
-
-# 3. Setup Environment
-# Create a .env file with SEPOLIA_RPC_URL, PRIVATE_KEY, and ETHERSCAN_API_KEY
-```
-
-## 💻 Usage
-
-We use `Make` to simplify common commands.
-
-### Build
-Compile the smart contracts:
-```bash
-make build
-```
-
-### Test
-Run the comprehensive test suite:
-```bash
-make test
-```
-
-### Deploy
-Deploy to Sepolia Testnet (Requires .env):
-```bash
-make deploy-sepolia
-```
 
 ## 🤝 Contributing
 
@@ -87,3 +48,4 @@ Contributions are welcome! Please open an issue or submit a PR.
 ## 📄 License
 
 This project is licensed under the MIT License.
+# fundcaster
