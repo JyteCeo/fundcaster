@@ -1,0 +1,308 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FundArc - Discover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#90d1d9",
+                        "tertiary-container": "#9b291f",
+                        "outline": "#6f797a",
+                        "secondary-container": "#9af2b9",
+                        "primary-fixed-dim": "#90d1d9",
+                        "inverse-on-surface": "#f8efe6",
+                        "surface-dim": "#e1d9d0",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#004f55",
+                        "primary-container": "#0f5c63",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e9e1d8",
+                        "on-tertiary-fixed-variant": "#891c15",
+                        "background": "#fff8f2",
+                        "on-secondary-fixed": "#00210f",
+                        "on-surface-variant": "#3f484a",
+                        "surface-container-low": "#fbf2e9",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#0f7143",
+                        "on-background": "#1e1b16",
+                        "tertiary-fixed": "#ffdad5",
+                        "outline-variant": "#bfc8c9",
+                        "secondary-fixed-dim": "#81d9a1",
+                        "on-tertiary-fixed": "#410001",
+                        "on-tertiary-container": "#ffb5aa",
+                        "on-surface": "#1e1b16",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f5ede4",
+                        "on-secondary-fixed-variant": "#00522e",
+                        "on-primary-container": "#91d2da",
+                        "surface": "#fff8f2",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fff8f2",
+                        "inverse-surface": "#34302a",
+                        "surface-variant": "#e9e1d8",
+                        "tertiary-fixed-dim": "#ffb4a9",
+                        "surface-container-high": "#efe7de",
+                        "on-primary-fixed": "#002023",
+                        "primary": "#004349",
+                        "secondary-fixed": "#9df5bb",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#21676f",
+                        "secondary": "#056d3f",
+                        "primary-fixed": "#aceef6",
+                        "tertiary": "#7a100b",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Fraunces"],
+                        "kicker-label": ["JetBrains Mono"],
+                        "headline-lg": ["Fraunces"],
+                        "headline-lg-mobile": ["Fraunces"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["64px", { "lineHeight": "1.0", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "kicker-label": ["11px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.1", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FBFAF6; /* Light paper override */
+            position: relative;
+        }
+        /* Paper texture overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .hairline-b { border-bottom: 1px solid var(--tw-colors-outline-variant); }
+        .hairline-t { border-top: 1px solid var(--tw-colors-outline-variant); }
+        .hairline-l { border-left: 1px solid var(--tw-colors-outline-variant); }
+        .hairline-r { border-right: 1px solid var(--tw-colors-outline-variant); }
+        .hairline-all { border: 1px solid var(--tw-colors-outline-variant); }
+        
+        .progress-bar-ledger::-webkit-progress-bar { background-color: var(--tw-colors-surface-container-highest); border-radius: 0; }
+        .progress-bar-ledger::-webkit-progress-value { background-color: var(--tw-colors-secondary); border-radius: 0; }
+        .progress-bar-ledger::-moz-progress-bar { background-color: var(--tw-colors-secondary); border-radius: 0; }
+    </style>
+</head>
+<body class="text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-background docked full-width top-0 h-16 border-b border-outline-variant flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto z-50 relative">
+<div class="flex items-center gap-gutter">
+<a class="font-display-xl text-headline-lg text-primary" href="#">FundArc</a>
+<div class="hidden md:flex gap-8 ml-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-200" href="#">Discover</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Start Fundraiser</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">How It Works</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">About</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-data-mono text-data-mono hidden md:inline-block px-2 py-1 hairline-all text-on-surface-variant">[ ETHEREUM ]</span>
+<div class="flex items-center gap-4">
+<span class="font-data-mono text-data-mono hidden sm:inline-block">0x12...34 | 1.2 ETH</span>
+<span class="material-symbols-outlined hover:text-primary cursor-pointer transition-colors" data-weight="fill" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="material-symbols-outlined hover:text-primary cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined hover:text-primary cursor-pointer transition-colors">contrast</span>
+<img alt="User Wallet Avatar" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A small, minimalist digital avatar showing an abstract geometric representation of a user wallet, using subtle warm ivory and deep petrol tones, clean lines, professional editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMheDlF92akI7n0Bko6Pm-dbifxzTuMa-N47zpe06awafxyo_BYlxWYaXcqfx-mqCHyZ2UVWV_GcWYbEqsJ7BxtPL7gTWm0WA4vvqw7ATieDUv0gktiqMQL6PmbILgtDSNCuV9T37J8dwh7Y-mE_tCNKpT1WvXLYZzGAWH9QXbvP62JfplP3nNlgpg6AP95ClDyPaQKyrPMs-qcjFVTEcaJX9MGiIp1hZJ-EVoRMaL2w40jX6y3xYW">
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<!-- Hero Section (Asymmetrical) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-20 items-center">
+<div class="md:col-span-7 pr-0 md:pr-12">
+<p class="font-kicker-label text-kicker-label text-on-surface-variant mb-6 uppercase tracking-widest">01 / ON-CHAIN CROWDFUNDING</p>
+<h1 class="font-display-xl text-display-xl text-on-background mb-6 leading-tight">Back the projects building the future.</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-xl">Transparent, verifiable, and governed by smart contracts. Discover and fund the next generation of decentralized infrastructure and culture with absolute certainty.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary px-6 py-3 rounded hover:opacity-90 transition-opacity font-data-mono text-data-mono uppercase">Explore projects</button>
+<button class="bg-transparent text-on-surface hairline-all px-6 py-3 rounded hover:bg-surface-variant transition-colors font-data-mono text-data-mono uppercase">Start a fundraiser</button>
+</div>
+</div>
+<div class="md:col-span-5 relative mt-12 md:mt-0">
+<!-- Featured Campaign Compact Card -->
+<div class="bg-surface-lowest hairline-all p-6 shadow-sm relative overflow-hidden group">
+<div class="mb-4 aspect-video hairline-all bg-surface-variant relative">
+<img class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" data-alt="A high-quality architectural render of a modern, minimalist data center integrated with nature, showing glowing decentralized network nodes, soft natural light filtering through trees, hyper-realistic, editorial finance aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_m0ERoCSi92ZLuYREW4z8dptTGy0rCZFrPhGCh4Eq1f3BqZs1NlR-ksbyW_05W3aqhn3-M-TIK34P0wA5zfCVchPFYPaC6QKw3PeuqNPHVzoGhq0AC9ssobdF7PA4LCTeBtufivUO4MkjaCY-zHksPOHX-q7QISoeExMYNL7BxHdLQoNJy-G1nEepGJqmtsT2rn72fbHWIZcYzfgnv_fBIy6GXu7t8N6-eQyhCCDVCLnJPPidFB0-">
+<div class="absolute top-2 left-2 bg-surface hairline-all px-2 py-1 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-data-mono text-[10px] uppercase">LIVE</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<span class="font-data-mono text-data-mono text-on-surface-variant text-[11px] hairline-all px-1.5 py-0.5">[ INFRA ]</span>
+<div class="flex items-center gap-1">
+<span class="font-data-mono text-[11px]">0xLab</span>
+<span class="material-symbols-outlined text-[14px] hairline-all rounded-full p-0.5 text-on-surface-variant">check</span>
+</div>
+</div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-[28px] leading-tight mb-4">Decentralized Compute Cluster Alpha</h2>
+<div class="border-t border-outline-variant pt-4 mt-4">
+<progress class="progress-bar-ledger w-full h-1 mb-2" max="100" value="45"></progress>
+<div class="flex justify-between items-end">
+<div>
+<span class="font-data-mono text-data-mono block text-xl">142.5 / 300 ETH</span>
+</div>
+<div class="text-right">
+<span class="font-data-mono text-data-mono text-on-surface-variant block text-xs">BACKERS</span>
+<span class="font-data-mono text-data-mono block">1,204</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Strip -->
+<section class="hairline-y border-y border-outline-variant py-8 mb-20">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center md:text-left md:border-r md:border-outline-variant last:border-0 pr-4">
+<span class="font-data-mono text-data-mono block text-xl md:text-2xl mb-1">$4.2M</span>
+<span class="font-kicker-label text-kicker-label text-on-surface-variant block uppercase">/ TOTAL RAISED</span>
+</div>
+<div class="text-center md:text-left md:border-r md:border-outline-variant last:border-0 pr-4">
+<span class="font-data-mono text-data-mono block text-xl md:text-2xl mb-1">124</span>
+<span class="font-kicker-label text-kicker-label text-on-surface-variant block uppercase">/ PROJECTS FUNDED</span>
+</div>
+<div class="text-center md:text-left md:border-r md:border-outline-variant last:border-0 pr-4">
+<span class="font-data-mono text-data-mono block text-xl md:text-2xl mb-1">8.9K</span>
+<span class="font-kicker-label text-kicker-label text-on-surface-variant block uppercase">/ BACKERS</span>
+</div>
+<div class="text-center md:text-left pr-4">
+<span class="font-data-mono text-data-mono block text-xl md:text-2xl mb-1">VERIFIED</span>
+<span class="font-kicker-label text-kicker-label text-on-surface-variant block uppercase">/ AUDITED</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/30 py-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-12">
+    <div class="md:col-span-5">
+      <h3 class="font-display-xl text-headline-lg text-primary mb-2">FundArc</h3>
+      <p class="font-body-md text-on-surface-variant opacity-80">On-chain crowdfunding you can verify</p>
+    </div>
+    <div class="md:col-span-7 flex flex-col md:items-end justify-center mt-8 md:mt-0">
+      <div class="flex w-full max-w-md gap-2">
+        <input type="email" placeholder="Email address" class="flex-1 bg-transparent border border-outline-variant px-4 py-2 rounded text-body-md focus:ring-1 focus:ring-primary-container outline-none">
+        <button class="bg-primary-container text-on-primary px-6 py-2 rounded-[6px] font-data-mono text-data-mono uppercase hover:opacity-90 transition-opacity">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+    <div class="flex flex-col gap-4">
+      <h4 class="font-kicker-label text-kicker-label text-on-surface-variant uppercase tracking-widest">EXPLORE</h4>
+      <div class="flex flex-col gap-2">
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Discover</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Categories</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Featured</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Leaderboard</a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-kicker-label text-kicker-label text-on-surface-variant uppercase tracking-widest">CREATORS</h4>
+      <div class="flex flex-col gap-2">
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Start a fundraiser</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Creator guide</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Fees</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Verification</a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-kicker-label text-kicker-label text-on-surface-variant uppercase tracking-widest">RESOURCES</h4>
+      <div class="flex flex-col gap-2">
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">How it works</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Docs</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">FAQ</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Support</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Blog</a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-kicker-label text-kicker-label text-on-surface-variant uppercase tracking-widest">COMPANY</h4>
+      <div class="flex flex-col gap-2">
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">About</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Careers</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Brand</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Contact</a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-kicker-label text-kicker-label text-on-surface-variant uppercase tracking-widest">LEGAL</h4>
+      <div class="flex flex-col gap-2">
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Terms</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Privacy</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Risk disclosure</a>
+        <a href="#" class="text-body-md hover:text-primary-container hover:underline underline-offset-4 transition-colors">Cookies</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-y border-outline-variant/30 py-4 mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="flex items-center gap-4">
+      <span class="font-kicker-label text-[10px] text-on-surface-variant uppercase">Audited by</span>
+      <div class="h-6 w-24 bg-surface-container-highest flex items-center justify-center text-[10px] font-data-mono opacity-50">[ LOGO ]</div>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#" class="font-data-mono text-xs text-on-surface-variant hover:text-primary transition-colors">0x4B...8F2</a>
+      <div class="flex gap-2">
+        <span class="font-data-mono text-[10px] px-1.5 py-0.5 hairline-all text-on-surface-variant">[ ETHEREUM ]</span>
+        <span class="font-data-mono text-[10px] px-1.5 py-0.5 hairline-all text-on-surface-variant">[ BASE ]</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+    <span class="font-data-mono text-xs text-on-surface-variant">© 2026 FundArc</span>
+    <div class="flex items-center gap-6">
+      <div class="flex gap-4">
+        <span class="material-symbols-outlined text-xl text-on-surface-variant cursor-pointer hover:text-primary">share</span>
+        <span class="material-symbols-outlined text-xl text-on-surface-variant cursor-pointer hover:text-primary">public</span>
+      </div>
+      <div class="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors">
+        <span class="font-data-mono text-xs">EN / USD</span>
+        <span class="material-symbols-outlined text-sm">expand_more</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body></html>

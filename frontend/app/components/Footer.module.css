@@ -1,0 +1,276 @@
+.footer {
+  margin-top: auto;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 60px 40px 40px;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto 48px;
+}
+
+.brand {
+  max-width: 400px;
+}
+
+.wordmark {
+  font-family: var(--font-serif), serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.mission {
+  font-family: var(--font-sans), sans-serif;
+  color: var(--muted);
+  margin: 0;
+}
+
+.subscribeRow {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  max-width: 380px;
+  align-self: flex-end;
+}
+
+.emailInput {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  outline: none;
+}
+
+.emailInput::placeholder {
+  color: var(--muted);
+}
+
+.emailInput:focus {
+  border-color: var(--accent);
+}
+
+.subscribeBtn {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--accent);
+  color: var(--background);
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.subscribeBtn:hover {
+  opacity: 0.85;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto 48px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columnHeading {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+.columnLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.columnLink {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.columnLink:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.trustRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+
+.audited {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.auditedLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.auditedLogo {
+  height: 24px;
+  width: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+
+.trustRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.walletAddress {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.walletAddress:hover {
+  color: var(--accent);
+}
+
+.networkBadges {
+  display: flex;
+  gap: 8px;
+}
+
+.networkBadge {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3px 6px;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.copyright {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.bottomRight {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.bottomIcons {
+  display: flex;
+  gap: 16px;
+  color: var(--muted);
+}
+
+.bottomIcons svg {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.bottomIcons svg:hover {
+  color: var(--accent);
+}
+
+.localeSelect {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.localeSelect:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 40px 20px 30px;
+  }
+
+  .top {
+    flex-direction: column;
+  }
+
+  .subscribeRow {
+    max-width: 100%;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+  }
+
+  .trustRow,
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
