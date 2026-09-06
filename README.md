@@ -1,4 +1,4 @@
-# 🎩 FundCaster
+#  FundCaster
 
 > **Crowdfunding for the Farcaster Era.**
 > A decentralized, frame-native mini-app allowing creators to raise funds directly on Warpcast.
@@ -7,18 +7,18 @@
 ![Foundry](https://img.shields.io/badge/Built%20with-Foundry-orange)
 ![Network](https://img.shields.io/badge/Network-Base%20Sepolia-blue)
 
-## 📖 Overview
+##  Overview
 
 **FundCaster** transforms the crowdfunding experience by removing friction. Instead of navigating to external websites, connecting wallets, and signing transactions, users can fund their favorite projects with **1-click** directly from their social feed via Farcaster Frames.
 
-## ✨ Features
+##  Features
 
 - **Micro-Grants & Tipping**: Optimized for small, frequent transactions (min $5 USD).
 - **Price Feeds**: Real-time ETH/USD conversion using Chainlink Price Feeds.
 - **Efficient Withdrawals**: Batch withdrawal logic to save gas for project owners.
 - **Visual Feedback**: Real-time progress tracking within the Frame (Coming Soon).
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 graph TD
@@ -29,7 +29,7 @@ graph TD
     Contract -->|Stores Value| Vault[ETH Vault]
 ```
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Smart Contracts**: Solidity v0.8.18, Foundry
 - **Network**: Base Sepolia (L2), Ethereum Sepolia (L1)
@@ -41,11 +41,11 @@ graph TD
 
 
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please open an issue or submit a PR.
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License.
 # fundcaster

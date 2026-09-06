@@ -22,3 +22,12 @@ lib/
 broadcast/
 reports/
 
+# System & Install Logs 
+install
+install.log
+foundryup-zksync
+
+# ZKSync Binaries 
+cast.1.gz
+forge.1.gz
+foundry_zksync_man_v0.0.13.tar.gz
