@@ -1,0 +1,439 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FundArc - Start a Fundraiser</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#0f7143",
+                        "secondary-container": "#9af2b9",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#3f484a",
+                        "primary": "#004349",
+                        "tertiary-container": "#9b291f",
+                        "on-background": "#1e1b16",
+                        "secondary-fixed-dim": "#81d9a1",
+                        "on-tertiary-fixed": "#410001",
+                        "surface-bright": "#fff8f2",
+                        "surface-dim": "#e1d9d0",
+                        "inverse-primary": "#90d1d9",
+                        "primary-fixed": "#aceef6",
+                        "primary-container": "#0f5c63",
+                        "surface": "#fff8f2",
+                        "on-primary-container": "#91d2da",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1e1b16",
+                        "secondary-fixed": "#9df5bb",
+                        "outline-variant": "#bfc8c9",
+                        "on-tertiary-container": "#ffb5aa",
+                        "surface-container-highest": "#e9e1d8",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#34302a",
+                        "surface-container-low": "#fbf2e9",
+                        "inverse-on-surface": "#f8efe6",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#21676f",
+                        "tertiary-fixed-dim": "#ffb4a9",
+                        "surface-container-high": "#efe7de",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7a100b",
+                        "surface-container": "#f5ede4",
+                        "background": "#fff8f2",
+                        "on-secondary-fixed": "#00210f",
+                        "secondary": "#056d3f",
+                        "on-secondary-fixed-variant": "#00522e",
+                        "surface-variant": "#e9e1d8",
+                        "on-tertiary-fixed-variant": "#891c15",
+                        "tertiary-fixed": "#ffdad5",
+                        "outline": "#6f797a",
+                        "on-primary-fixed-variant": "#004f55",
+                        "on-primary-fixed": "#002023",
+                        "primary-fixed-dim": "#90d1d9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Fraunces"],
+                        "headline-lg-mobile": ["Fraunces"],
+                        "headline-lg": ["Fraunces"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Work Sans"],
+                        "kicker-label": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["64px", { "lineHeight": "1.0", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.1", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "kicker-label": ["11px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Paper Texture Overlay */
+        .paper-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        /* Custom scrollbar for form area */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #e9e1d8;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased relative min-h-screen flex flex-col">
+<div class="paper-grain"></div>
+<!-- Top Navigation (Shared Component JSON) -->
+<nav class="bg-background dark:bg-background docked full-width top-0 h-16 border-b border-outline-variant dark:border-outline flat no shadows z-50 fixed w-full">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-full">
+<!-- Brand Logo -->
+<a class="font-display-xl text-headline-lg text-primary dark:text-inverse-primary tracking-tight" href="#">FundArc</a>
+<!-- Desktop Links -->
+<ul class="hidden md:flex items-center space-x-8">
+<li class=""><a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">Discover</a></li>
+<li class=""><a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary dark:border-inverse-primary pb-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 Active: opacity-80 transition-opacity" href="#">Start Fundraiser</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">How It Works</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">About</a></li>
+</ul>
+<!-- Trailing Actions -->
+<div class="flex items-center space-x-6">
+<!-- Search & Actions -->
+<div class="hidden md:flex items-center space-x-4 text-on-surface-variant">
+<button class="hover:text-primary transition-colors duration-200"><span class="material-symbols-outlined">search</span></button>
+<button class="hover:text-primary transition-colors duration-200"><span class="material-symbols-outlined">public</span></button>
+<button class="hover:text-primary transition-colors duration-200"><span class="material-symbols-outlined">contrast</span></button>
+</div>
+<!-- Wallet Secondary Action -->
+<div class="hidden md:flex items-center">
+<button class="font-data-mono text-data-mono border border-outline text-on-surface hover:bg-surface-variant transition-colors px-4 py-2 rounded-xl flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+<span class="">0x12...34 | 1.2 ETH</span>
+</button>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[64px] flex flex-col w-full h-full pb-[200px]"> <!-- pt-64 for fixed nav, pb-200 to clear big footer -->
+<!-- Horizontal Stepper -->
+<div class="w-full border-b border-outline-variant bg-surface-container-lowest sticky top-[64px] z-40">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4">
+<ol class="flex items-center w-full">
+<li class="flex w-full items-center text-primary relative">
+<span class="font-data-mono text-data-mono uppercase whitespace-nowrap bg-surface-container-lowest pr-4 z-10 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span> 01 Basics
+                        </span>
+<div class="absolute w-full h-[1px] bg-primary top-1/2 left-0 -translate-y-1/2 z-0"></div>
+</li>
+<li class="flex w-full items-center text-outline relative pl-4">
+<span class="font-data-mono text-data-mono uppercase whitespace-nowrap bg-surface-container-lowest px-4 z-10">02 Story</span>
+<div class="absolute w-full h-[1px] bg-outline-variant top-1/2 left-0 -translate-y-1/2 z-0"></div>
+</li>
+<li class="flex w-full items-center text-outline relative pl-4">
+<span class="font-data-mono text-data-mono uppercase whitespace-nowrap bg-surface-container-lowest px-4 z-10">03 Funding</span>
+<div class="absolute w-full h-[1px] bg-outline-variant top-1/2 left-0 -translate-y-1/2 z-0"></div>
+</li>
+<li class="flex w-full items-center text-outline relative pl-4">
+<span class="font-data-mono text-data-mono uppercase whitespace-nowrap bg-surface-container-lowest px-4 z-10">04 Payout</span>
+<div class="absolute w-full h-[1px] bg-outline-variant top-1/2 left-0 -translate-y-1/2 z-0"></div>
+</li>
+<li class="flex items-center text-outline pl-4">
+<span class="font-data-mono text-data-mono uppercase whitespace-nowrap">05 Review</span>
+</li>
+</ol>
+</div>
+</div>
+<!-- 2-Column Editorial Grid Layout -->
+<div class="max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop mt-12 grid grid-cols-1 lg:grid-cols-12 gap-gutter relative items-start">
+<!-- Left Column: Form Inputs (8 cols) -->
+<div class="lg:col-span-7 col-span-1 flex flex-col gap-12 pb-24">
+<div>
+<h1 class="font-display-xl text-display-xl text-on-surface mb-2">Campaign Basics</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Establish the core identity of your fundraiser. This information acts as the anchor point for your smart contract and cannot be easily changed once deployed.</p>
+</div>
+<form class="flex flex-col gap-10">
+<!-- Section: Title -->
+<div class="border-t border-outline-variant pt-8">
+<label class="block mb-2 flex items-center justify-between">
+<span class="font-data-mono text-data-mono uppercase text-on-surface">Project Title</span>
+<span class="font-data-mono text-data-mono text-outline text-xs">0 / 60</span>
+</label>
+<input class="w-full bg-transparent border border-outline rounded-xl font-headline-lg text-headline-lg p-4 focus:ring-1 focus:ring-primary focus:border-primary placeholder:text-outline-variant text-on-surface transition-all" id="projectTitle" placeholder="The Sovereign Archive Project" type="text">
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 text-sm">A clear, striking title for your campaign ledger.</p>
+</div>
+<!-- Section: Category -->
+<div class="border-t border-outline-variant pt-8">
+<label class="block mb-4">
+<span class="font-data-mono text-data-mono uppercase text-on-surface">Category</span>
+</label>
+<div class="flex flex-wrap gap-3">
+<button class="border border-outline bg-transparent text-on-surface font-data-mono text-data-mono px-4 py-2 rounded-xl hover:bg-surface-variant transition-colors group" type="button">
+                                [ <span class="group-hover:text-primary transition-colors">DEFI</span> ]
+                            </button>
+<button class="border border-primary bg-surface-variant text-primary font-data-mono text-data-mono px-4 py-2 rounded-xl transition-colors group" type="button">
+                                [ PUBLIC GOODS ]
+                            </button>
+<button class="border border-outline bg-transparent text-on-surface font-data-mono text-data-mono px-4 py-2 rounded-xl hover:bg-surface-variant transition-colors group" type="button">
+                                [ ART &amp; MEDIA ]
+                            </button>
+<button class="border border-outline bg-transparent text-on-surface font-data-mono text-data-mono px-4 py-2 rounded-xl hover:bg-surface-variant transition-colors group" type="button">
+                                [ CLIMATE ]
+                            </button>
+<button class="border border-outline bg-transparent text-on-surface font-data-mono text-data-mono px-4 py-2 rounded-xl hover:bg-surface-variant transition-colors group" type="button">
+                                [ RESEARCH ]
+                            </button>
+</div>
+</div>
+<!-- Section: Tagline -->
+<div class="border-t border-outline-variant pt-8">
+<label class="block mb-2 flex items-center justify-between">
+<span class="font-data-mono text-data-mono uppercase text-on-surface">Short Tagline</span>
+<span class="font-data-mono text-data-mono text-outline text-xs">0 / 120</span>
+</label>
+<textarea class="w-full bg-transparent border border-outline rounded-xl font-body-md text-body-md p-4 focus:ring-1 focus:ring-primary focus:border-primary placeholder:text-outline-variant text-on-surface transition-all resize-none" id="projectTagline" placeholder="Preserving critical open-source data through decentralized storage networks." rows="2"></textarea>
+</div>
+<!-- Section: Cover Image -->
+<div class="border-t border-outline-variant pt-8">
+<label class="block mb-2">
+<span class="font-data-mono text-data-mono uppercase text-on-surface">Cover Image</span>
+</label>
+<div class="border border-dashed border-outline rounded-xl p-12 flex flex-col items-center justify-center bg-surface-container-low hover:bg-surface-variant transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full border border-outline flex items-center justify-center mb-4 group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">upload</span>
+</div>
+<span class="font-data-mono text-data-mono text-on-surface mb-1">DRAG &amp; DROP OR CLICK TO BROWSE</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm">Recommended size: 1200 x 630px (Max 5MB)</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="border-t border-outline-variant pt-8 flex justify-end gap-4">
+<button class="border border-outline bg-transparent text-on-surface font-data-mono text-data-mono px-6 py-3 rounded-xl hover:bg-surface-variant transition-colors" type="button">
+                            SAVE DRAFT
+                        </button>
+<button class="bg-primary-container text-white font-data-mono text-data-mono px-8 py-3 rounded-xl hover:bg-primary transition-colors" type="button">
+                            CONTINUE TO STORY
+                        </button>
+</div>
+</form>
+</div>
+<!-- Right Column: Live Preview Sticky (4 cols, 1 empty col for offset) -->
+<div class="lg:col-start-9 lg:col-span-4 col-span-1 sticky top-[160px] pb-24 hidden md:block">
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-primary inline-block animate-pulse"></span>
+<span class="font-data-mono text-data-mono uppercase text-on-surface">Live Preview</span>
+</div>
+<!-- Editorial Campaign Card Preview -->
+<div class="bg-surface-container-lowest border border-outline rounded-none shadow-sm flex flex-col w-full group relative overflow-hidden">
+<!-- Image Area -->
+<div class="w-full h-48 bg-surface-container-high border-b border-outline relative">
+<div class="absolute inset-0 flex items-center justify-center text-outline-variant flex-col gap-2">
+<span class="material-symbols-outlined text-3xl">image</span>
+<span class="font-data-mono text-data-mono text-xs">NO COVER IMAGE</span>
+</div>
+</div>
+<!-- Card Content -->
+<div class="p-6 flex flex-col gap-4">
+<!-- Header / Category -->
+<div class="flex justify-between items-center">
+<span class="font-kicker-label text-kicker-label text-outline uppercase tracking-widest border border-outline-variant px-2 py-0.5 rounded-sm">[ PUBLIC GOODS ]</span>
+<!-- Status Indicator -->
+<div class="flex items-center gap-1.5">
+<div class="w-[4px] h-[4px] rounded-full bg-outline-variant"></div>
+<span class="font-data-mono text-data-mono text-[10px] text-outline-variant uppercase">DRAFT</span>
+</div>
+</div>
+<!-- Title -->
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-2 mb-1 min-h-[70px] leading-tight text-outline-variant italic" id="previewTitle">The Sovereign Archive Project...</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 min-h-[44px] text-outline-variant italic" id="previewTagline">Preserving critical open-source data through decentralized storage networks...</p>
+<!-- Author / Verification -->
+<div class="flex items-center gap-2 mt-2">
+<div class="w-6 h-6 rounded-full border border-outline bg-surface-variant flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-[12px] text-outline">person</span>
+</div>
+<span class="font-data-mono text-data-mono text-xs text-on-surface">You (0x12...34)</span>
+</div>
+<hr class="border-outline-variant my-2">
+<!-- Ledger Stats -->
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="font-data-mono text-data-mono text-[10px] text-outline mb-1 uppercase">Raised / Goal</span>
+<div class="flex items-baseline gap-1 border-b border-outline pb-1">
+<span class="font-data-mono text-data-mono text-lg text-on-surface font-semibold">0.00</span>
+<span class="font-data-mono text-data-mono text-xs text-on-surface-variant">/ -- ETH</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-data-mono text-data-mono text-[10px] text-outline mb-1 uppercase">Backers</span>
+<div class="border-b border-outline pb-1">
+<span class="font-data-mono text-data-mono text-lg text-on-surface">0</span>
+</div>
+</div>
+</div>
+<!-- Ledger Progress Bar -->
+<div class="w-full h-1 bg-surface-variant mt-2 overflow-hidden">
+<div class="h-full w-[0%] bg-primary"></div>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-xs mt-4 text-center">Changes are reflected automatically. Final rendering may vary slightly based on screen size.</p>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component JSON) -->
+<footer class="bg-surface-container-high border-t border-outline-variant pt-16 pb-8 mt-auto">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-16">
+            <!-- Brand & Mission -->
+            <div class="lg:col-span-4 flex flex-col gap-6">
+                <a href="#" class="font-display-xl text-headline-lg text-primary tracking-tight">FundArc</a>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Empowering the next generation of open-source infrastructure through decentralized, milestone-based crowdfunding. Built for builders, governed by the community.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-variant transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">share</span>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-variant transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">terminal</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Link Columns -->
+            <div class="lg:col-start-6 lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="flex flex-col gap-4">
+                    <span class="font-data-mono text-kicker-label uppercase text-on-surface">Platform</span>
+                    <ul class="flex flex-col gap-3">
+                        <li class=""><a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-colors">Discover</a></li>
+                        <li class=""><a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-colors">Start Fundraiser</a></li>
+                        <li class=""><a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-colors">How It Works</a></li>
+                        <li class=""><a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-colors">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span class="font-data-mono text-kicker-label uppercase text-on-surface">Resources</span>
+                    <ul class="flex flex-col gap-3">
+                        <li class=""><a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-colors">Documentation</a></li>
+                        <li class=""><a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-colors">Help Center</a></li>
+                        <li class=""><a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-colors">Brand Assets</a></li>
+                        <li class=""><a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span class="font-data-mono text-kicker-label uppercase text-on-surface">Legal</span>
+                    <ul class="flex flex-col gap-3">
+                        <li class=""><a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-colors">Terms of Service</a></li>
+                        <li class=""><a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li class=""><a href="#" class="font-body-md text-on-surface-variant hover:text-primary transition-colors">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Row -->
+        <div class="border-t border-outline-variant py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">verified_user</span>
+                <span class="font-data-mono text-data-mono text-xs text-on-surface-variant uppercase">Verified Smart Contract:</span>
+                <code class="bg-surface-container px-2 py-1 rounded font-data-mono text-[12px] text-primary">0x8920...5432</code>
+            </div>
+            <div class="flex items-center gap-6">
+                <span class="font-data-mono text-[10px] text-outline uppercase">Audited by:</span>
+                <span class="font-bold text-on-surface opacity-50">OpenZeppelin</span>
+                <span class="font-bold text-on-surface opacity-50">CertiK</span>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-outline-variant pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-data-mono text-[12px] text-outline">
+                © 2024 FundArc Protocol. All rights reserved.
+            </p>
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-secondary"></div>
+                <span class="font-data-mono text-[12px] text-on-surface-variant uppercase">Mainnet Status: Operational</span>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Simple JS for Live Preview Interaction -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const titleInput = document.getElementById('projectTitle');
+            const taglineInput = document.getElementById('projectTagline');
+            const previewTitle = document.getElementById('previewTitle');
+            const previewTagline = document.getElementById('previewTagline');
+
+            titleInput.addEventListener('input', (e) => {
+                if(e.target.value.trim() !== '') {
+                    previewTitle.textContent = e.target.value;
+                    previewTitle.classList.remove('text-outline-variant', 'italic');
+                } else {
+                    previewTitle.textContent = 'The Sovereign Archive Project...';
+                    previewTitle.classList.add('text-outline-variant', 'italic');
+                }
+            });
+
+            taglineInput.addEventListener('input', (e) => {
+                if(e.target.value.trim() !== '') {
+                    previewTagline.textContent = e.target.value;
+                    previewTagline.classList.remove('text-outline-variant', 'italic');
+                } else {
+                    previewTagline.textContent = 'Preserving critical open-source data through decentralized storage networks...';
+                    previewTagline.classList.add('text-outline-variant', 'italic');
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

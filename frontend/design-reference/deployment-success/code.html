@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FundArc - Review &amp; Success</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#0f7143",
+                        "secondary-container": "#9af2b9",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#3f484a",
+                        "primary": "#004349",
+                        "tertiary-container": "#9b291f",
+                        "on-background": "#1e1b16",
+                        "secondary-fixed-dim": "#81d9a1",
+                        "on-tertiary-fixed": "#410001",
+                        "surface-bright": "#fff8f2",
+                        "surface-dim": "#e1d9d0",
+                        "inverse-primary": "#90d1d9",
+                        "primary-fixed": "#aceef6",
+                        "primary-container": "#0f5c63",
+                        "surface": "#fff8f2",
+                        "on-primary-container": "#91d2da",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1e1b16",
+                        "secondary-fixed": "#9df5bb",
+                        "outline-variant": "#bfc8c9",
+                        "on-tertiary-container": "#ffb5aa",
+                        "surface-container-highest": "#e9e1d8",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#34302a",
+                        "surface-container-low": "#fbf2e9",
+                        "inverse-on-surface": "#f8efe6",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#21676f",
+                        "tertiary-fixed-dim": "#ffb4a9",
+                        "surface-container-high": "#efe7de",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7a100b",
+                        "surface-container": "#f5ede4",
+                        "background": "#fff8f2",
+                        "on-secondary-fixed": "#00210f",
+                        "secondary": "#056d3f",
+                        "on-secondary-fixed-variant": "#00522e",
+                        "surface-variant": "#e9e1d8",
+                        "on-tertiary-fixed-variant": "#891c15",
+                        "tertiary-fixed": "#ffdad5",
+                        "outline": "#6f797a",
+                        "on-primary-fixed-variant": "#004f55",
+                        "on-primary-fixed": "#002023",
+                        "primary-fixed-dim": "#90d1d9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Fraunces"],
+                        "headline-lg-mobile": ["Fraunces"],
+                        "headline-lg": ["Fraunces"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Work Sans"],
+                        "kicker-label": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["64px", { "lineHeight": "1.0", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.1", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "kicker-label": ["11px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .texture-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+            opacity: 0.03;
+        }
+        .hairline-b { border-bottom: 1px solid theme('colors.outline-variant'); }
+        .hairline-t { border-top: 1px solid theme('colors.outline-variant'); }
+        .hairline-l { border-left: 1px solid theme('colors.outline-variant'); }
+        .hairline-r { border-right: 1px solid theme('colors.outline-variant'); }
+        .hairline-all { border: 1px solid theme('colors.outline-variant'); }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen relative">
+<div class="texture-overlay"></div>
+<!-- TopNavBar -->
+<nav class="bg-background dark:bg-background text-primary dark:text-inverse-primary docked full-width top-0 h-16 border-b border-outline-variant dark:border-outline flat no shadows z-40 relative">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-8">
+<a class="font-display-xl text-headline-lg text-primary dark:text-inverse-primary" href="#">FundArc</a>
+<div class="hidden md:flex gap-6 h-full items-center">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">Discover</a>
+<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary dark:border-inverse-primary pb-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 h-full flex items-center pt-1" href="#">Start Fundraiser</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">How It Works</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">About</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-4">
+<button class="hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200"><span class="material-symbols-outlined" data-icon="search">search</span></button>
+<button class="hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200"><span class="material-symbols-outlined" data-icon="public">public</span></button>
+<button class="hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200"><span class="material-symbols-outlined" data-icon="contrast">contrast</span></button>
+</div>
+<div class="font-data-mono text-data-mono flex items-center gap-2 border border-outline-variant px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+<span>0x12...34 | 1.2 ETH</span>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 pb-24 grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- State A: Review Step (Visible by default) -->
+<div class="col-span-1 md:col-start-3 md:col-span-8 flex flex-col gap-12" id="review-state">
+<header class="text-center mb-4">
+<span class="font-kicker-label text-kicker-label text-outline block mb-4 uppercase tracking-widest">Step 05 of 05</span>
+<h1 class="font-headline-lg text-headline-lg md:font-display-xl md:text-display-xl">Review &amp; Deploy</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 max-w-2xl mx-auto">Please review your campaign details carefully before final deployment to the blockchain. These parameters become immutable once verified.</p>
+</header>
+<section class="bg-surface-container-lowest hairline-all rounded-lg p-8 relative">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-8 hairline-b pb-4">The Decentralized Future of Journalism</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+<div>
+<span class="font-kicker-label text-kicker-label text-outline block mb-2">FUNDING GOAL</span>
+<div class="font-data-mono text-[32px] font-bold leading-none mb-1">50.00 ETH</div>
+<div class="font-data-mono text-data-mono text-on-surface-variant">≈ $125,000 USD</div>
+</div>
+<div class="md:text-right">
+<span class="font-kicker-label text-kicker-label text-outline block mb-2">DURATION</span>
+<div class="font-data-mono text-[24px] font-bold leading-none mb-1">45 DAYS</div>
+<div class="font-data-mono text-data-mono text-on-surface-variant">Ends Oct 15, 2024</div>
+</div>
+</div>
+<div class="hairline-t pt-8 mb-8">
+<h3 class="font-data-mono text-data-mono mb-4 text-on-surface-variant">MILESTONE BREAKDOWN</h3>
+<ul class="space-y-3 font-data-mono text-data-mono">
+<li class="flex justify-between items-center hairline-b pb-2">
+<span>01 Initial Research Phase</span>
+<span>10 ETH (20%)</span>
+</li>
+<li class="flex justify-between items-center hairline-b pb-2">
+<span>02 Production &amp; Filming</span>
+<span>25 ETH (50%)</span>
+</li>
+<li class="flex justify-between items-center hairline-b pb-2">
+<span>03 Post-Production &amp; Marketing</span>
+<span>15 ETH (30%)</span>
+</li>
+</ul>
+</div>
+<div class="bg-surface-variant p-4 rounded-lg flex justify-between items-center">
+<span class="font-kicker-label text-kicker-label">ESTIMATED DEPLOYMENT GAS</span>
+<span class="font-data-mono text-data-mono">0.024 ETH</span>
+</div>
+</section>
+<div class="flex justify-center gap-4 mt-4">
+<button class="px-8 py-3 rounded-lg border border-outline text-on-surface hover:bg-surface-variant transition-colors font-data-mono text-data-mono uppercase">Back</button>
+<button class="px-8 py-3 rounded-lg bg-primary-container text-on-primary font-data-mono text-data-mono uppercase hover:bg-surface-tint transition-colors" id="deploy-btn">Deploy Campaign</button>
+</div>
+</div>
+<!-- State B: Success (Hidden initially) -->
+<div class="hidden col-span-1 md:col-start-3 md:col-span-8 flex flex-col items-center text-center gap-8 py-12" id="success-state">
+<div class="w-24 h-24 rounded-full border-2 border-primary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[48px] text-primary-container" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<header>
+<h1 class="font-display-xl text-headline-lg md:text-display-xl mb-4">Campaign Deployed</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg mx-auto">Your fundraiser is now live on the blockchain. The smart contract has been initialized and is ready to receive funds.</p>
+</header>
+<div class="bg-surface-container-lowest hairline-all rounded-lg p-6 w-full max-w-2xl text-left space-y-6">
+<div>
+<span class="font-kicker-label text-kicker-label text-outline block mb-2">CONTRACT ADDRESS</span>
+<div class="flex items-center justify-between bg-surface-variant p-3 rounded hairline-all">
+<span class="font-data-mono text-data-mono truncate mr-4">0x71C...976F</span>
+<a class="text-primary-container hover:underline font-data-mono text-[12px] flex items-center gap-1" href="#"><span class="material-symbols-outlined text-[14px]">open_in_new</span> Etherscan</a>
+</div>
+</div>
+<div>
+<span class="font-kicker-label text-kicker-label text-outline block mb-2">TRANSACTION HASH</span>
+<div class="flex items-center justify-between bg-surface-variant p-3 rounded hairline-all">
+<span class="font-data-mono text-data-mono truncate mr-4">0x9a8b...4f2e</span>
+<a class="text-primary-container hover:underline font-data-mono text-[12px] flex items-center gap-1" href="#"><span class="material-symbols-outlined text-[14px]">open_in_new</span> Etherscan</a>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mt-8 w-full max-w-md">
+<button class="flex-1 px-8 py-3 rounded-lg bg-primary-container text-on-primary font-data-mono text-data-mono uppercase hover:bg-surface-tint transition-colors">View Campaign</button>
+<button class="flex-1 px-8 py-3 rounded-lg border border-outline text-on-surface hover:bg-surface-variant transition-colors font-data-mono text-data-mono uppercase flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">share</span> Share
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container text-on-surface dark:text-on-surface border-t border-outline-variant dark:border-outline flat no shadows full-width bottom-0 mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-gutter py-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="md:col-span-2 space-y-4">
+<div class="font-display-xl text-headline-lg-mobile text-on-surface dark:text-on-surface">FundArc</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">© 2024 FundArc. Funds are held in audited smart contract escrow until campaign milestones are verified.</p>
+</div>
+<div class="md:col-span-3 flex flex-wrap gap-8 md:justify-end items-end h-full font-body-md text-body-md">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:underline decoration-1 underline-offset-4 Transition-all duration-300" href="#">Terms</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:underline decoration-1 underline-offset-4 Transition-all duration-300" href="#">Privacy</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:underline decoration-1 underline-offset-4 Transition-all duration-300" href="#">Documentation</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:underline decoration-1 underline-offset-4 Transition-all duration-300" href="#">Contact</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:underline decoration-1 underline-offset-4 Transition-all duration-300" href="#">Security</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple interaction to toggle between states for demonstration
+        document.getElementById('deploy-btn').addEventListener('click', function() {
+            // In a real app, this would show a loading state during the tx
+            const btn = this;
+            const originalText = btn.innerText;
+            btn.innerText = 'DEPLOYING...';
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                document.getElementById('review-state').classList.add('hidden');
+                document.getElementById('success-state').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 1500);
+        });
+    </script>
+</body></html>
