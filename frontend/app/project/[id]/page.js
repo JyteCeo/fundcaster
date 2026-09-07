@@ -9,10 +9,13 @@ import { parseEther } from 'viem';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { getProjectById } from '../../data/projects';
 import { contractAddress, abi } from '../../constants';
+import { FundingConfirmationModal } from '../../components/FundingConfirmationModal';
+import { ContributionSuccessModal } from '../../components/ContributionSuccessModal';
 import styles from './page.module.css';
 
 const QUICK_AMOUNTS = [0.05, 0.1, 0.5, 1];
 const TABS = ['story', 'milestones', 'updates', 'backers'];
+const ESTIMATED_GAS_ETH = 0.0012;
 
 function shortAddress(value) {
   return `${value.slice(0, 6)}...${value.slice(-4)}`;
@@ -36,6 +39,10 @@ export default function ProjectDetailPage() {
   const [ethAmount, setEthAmount] = useState('0.5');
   const [usdAmount, setUsdAmount] = useState('');
   const [ethPrice, setEthPrice] = useState(null);
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [confirmedTxHash, setConfirmedTxHash] = useState(null);
+  const [shareCopied, setShareCopied] = useState(false);
 
   const { isConnected } = useAccount();
   const { openConnectModal } = useConnectModal();
@@ -50,8 +57,13 @@ export default function ProjectDetailPage() {
   }, [params.id]);
 
   // Wagmi Hooks
-  const { data: hash, isPending, writeContract, reset } = useWriteContract();
-  const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({ hash });
+  const { data: hash, isPending, writeContract, reset, error: writeError } = useWriteContract();
+  const {
+    isLoading: isConfirming,
+    isSuccess: isConfirmed,
+    isError: isReceiptError,
+    error: receiptError,
+  } = useWaitForTransactionReceipt({ hash });
 
   // Reset after success
   useEffect(() => {
@@ -60,6 +72,15 @@ export default function ProjectDetailPage() {
       return () => clearTimeout(timer);
     }
   }, [isConfirmed, reset]);
+
+  // Once the transaction confirms, hand off from the confirmation modal to the success modal
+  useEffect(() => {
+    if (isConfirmed && hash) {
+      setConfirmedTxHash(hash);
+      setIsConfirmOpen(false);
+      setIsSuccessOpen(true);
+    }
+  }, [isConfirmed, hash]);
 
   // Fetch ETH Price
   useEffect(() => {
@@ -110,6 +131,26 @@ export default function ProjectDetailPage() {
     }
   };
 
+  const handleCloseConfirm = () => {
+    if (isPending || isConfirming) return;
+    setIsConfirmOpen(false);
+  };
+
+  const handleCloseSuccess = () => {
+    setIsSuccessOpen(false);
+    setShareCopied(false);
+  };
+
+  const handleShare = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+    } catch (error) {
+      // clipboard unavailable; the copy is a nice-to-have
+    }
+    setShareCopied(true);
+    setTimeout(() => setShareCopied(false), 3000);
+  };
+
   // Loading state
   if (!project) {
     return (
@@ -124,6 +165,8 @@ export default function ProjectDetailPage() {
   const networkName = isSepolia ? 'Sepolia Testnet' : 'Ethereum Mainnet';
   const etherscanBase = isSepolia ? 'https://sepolia.etherscan.io' : 'https://etherscan.io';
   const etherscanUrl = `${etherscanBase}/address/${contractAddress}`;
+  const txUrl = confirmedTxHash ? `${etherscanBase}/tx/${confirmedTxHash}` : null;
+  const fundError = writeError || (isReceiptError ? receiptError : null);
   const daysLeftLabel = project.status === 'past' ? 'Ended' : `${project.daysLeft}d`;
   const tickerBackers = [...project.recentBackers, ...project.recentBackers];
 
@@ -367,12 +410,12 @@ export default function ProjectDetailPage() {
                   <button
                     type="button"
                     className={styles.fundBtn}
-                    onClick={handleFund}
-                    disabled={isPending || isConfirming}
+                    onClick={() => setIsConfirmOpen(true)}
+                    disabled={!ethAmount || parseFloat(ethAmount) <= 0}
                   >
-                    {isPending ? 'Confirm in wallet…' : isConfirming ? 'Processing…' : isConfirmed ? 'Funded ✓' : 'Fund now'}
+                    Fund now
                   </button>
-                  <div className={styles.gasNote}>Est. gas: ~0.0012 ETH</div>
+                  <div className={styles.gasNote}>Est. gas: ~{ESTIMATED_GAS_ETH} ETH</div>
                 </div>
               )}
             </div>
@@ -393,6 +436,28 @@ export default function ProjectDetailPage() {
           </div>
         </div>
       </div>
+
+      <FundingConfirmationModal
+        isOpen={isConfirmOpen}
+        onClose={handleCloseConfirm}
+        onConfirm={handleFund}
+        projectTitle={project.title}
+        ethAmount={ethAmount}
+        usdAmount={usdAmount}
+        gasEstimateEth={ESTIMATED_GAS_ETH}
+        isPending={isPending}
+        isConfirming={isConfirming}
+        error={fundError}
+      />
+
+      <ContributionSuccessModal
+        isOpen={isSuccessOpen}
+        onClose={handleCloseSuccess}
+        txHash={confirmedTxHash}
+        txUrl={txUrl}
+        onShare={handleShare}
+        shareCopied={shareCopied}
+      />
     </main>
   );
 }

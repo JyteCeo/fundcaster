@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FundArc - Confirm Contribution</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#bfc8c9",
+                      "on-error": "#ffffff",
+                      "secondary": "#056d3f",
+                      "secondary-fixed-dim": "#81d9a1",
+                      "secondary-fixed": "#9df5bb",
+                      "on-secondary-container": "#0f7143",
+                      "outline": "#6f797a",
+                      "on-tertiary-container": "#ffb5aa",
+                      "on-primary-fixed": "#002023",
+                      "on-surface": "#1e1b16",
+                      "surface-container-high": "#efe7de",
+                      "secondary-container": "#9af2b9",
+                      "surface-container": "#f5ede4",
+                      "inverse-surface": "#34302a",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#7a100b",
+                      "on-primary-fixed-variant": "#004f55",
+                      "inverse-primary": "#90d1d9",
+                      "on-primary-container": "#91d2da",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#fbf2e9",
+                      "on-background": "#1e1b16",
+                      "primary": "#004349",
+                      "surface-dim": "#e1d9d0",
+                      "background": "#fff8f2",
+                      "on-tertiary-fixed-variant": "#891c15",
+                      "tertiary-fixed": "#ffdad5",
+                      "primary-fixed-dim": "#90d1d9",
+                      "inverse-on-surface": "#f8efe6",
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#21676f",
+                      "tertiary-container": "#9b291f",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#00210f",
+                      "primary-fixed": "#aceef6",
+                      "surface-bright": "#fff8f2",
+                      "on-surface-variant": "#3f484a",
+                      "on-tertiary-fixed": "#410001",
+                      "surface": "#fff8f2",
+                      "on-error-container": "#93000a",
+                      "primary-container": "#0f5c63",
+                      "surface-variant": "#e9e1d8",
+                      "surface-container-highest": "#e9e1d8",
+                      "on-secondary-fixed-variant": "#00522e",
+                      "tertiary-fixed-dim": "#ffb4a9",
+                      "on-tertiary": "#ffffff",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "base": "4px",
+                      "margin-mobile": "20px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "kicker-label": [
+                              "JetBrains Mono"
+                      ],
+                      "display-xl": [
+                              "Fraunces"
+                      ],
+                      "body-md": [
+                              "Work Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Fraunces"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Fraunces"
+                      ]
+              },
+              "fontSize": {
+                      "kicker-label": [
+                              "11px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-xl": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        /* Grain Overlay for Tactile Feel */
+        .paper-grain::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+            opacity: 0.03;
+            z-index: 50;
+        }
+        /* Strict ledger hairlines */
+        .ledger-line {
+            border-bottom: 1px solid theme('colors.outline-variant');
+        }
+        .ledger-line-top {
+            border-top: 1px solid theme('colors.outline-variant');
+        }
+      </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased paper-grain flex items-center justify-center min-h-screen relative overflow-hidden">
+<!-- Dimmed Background Overlay -->
+<div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-[2px] z-0"></div>
+<!-- Modal Container -->
+<main class="relative z-10 w-full max-w-md mx-margin-mobile md:mx-auto bg-[#FBFAF6] border border-outline rounded-[6px] p-8 flex flex-col gap-8">
+<!-- Header -->
+<header class="flex flex-col gap-2"><span class="font-kicker-label text-kicker-label text-on-surface-variant uppercase tracking-widest mb-1">04 / FUNDING CONFIRMATION</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary tracking-tight text-[48px]">Confirm Contribution</h1>
+<p class="text-on-surface-variant font-body-md text-body-md">Review transaction details before signing.</p>
+</header>
+<!-- Ledger Summary Block -->
+<section class="flex flex-col border border-outline rounded-none">
+<!-- Project Row -->
+<div class="flex flex-col p-4 ledger-line bg-surface-container-low">
+<span class="font-kicker-label text-kicker-label text-on-surface-variant uppercase mb-2">Project</span>
+<span class="font-data-mono text-data-mono text-on-surface font-semibold tracking-wide">Decentralized Compute Cluster Alpha</span>
+</div>
+<!-- Amount Row -->
+<div class="flex flex-col p-4 ledger-line bg-[#FBFAF6]">
+<span class="font-kicker-label text-kicker-label text-on-surface-variant uppercase mb-2">Amount</span>
+<div class="flex items-baseline justify-between">
+<span class="font-data-mono text-[24px] leading-none text-primary tracking-wider">0.5 <span class="text-on-surface-variant text-[16px]">ETH</span></span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">~$1,150.00 USD</span>
+</div>
+</div>
+<!-- Gas Row -->
+<div class="flex flex-col p-4 ledger-line bg-[#FBFAF6]">
+<div class="flex items-center justify-between">
+<span class="font-kicker-label text-kicker-label text-on-surface-variant uppercase">Estimated Gas</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">0.0012 ETH</span>
+</div>
+</div>
+<!-- Total Row -->
+<div class="flex flex-col p-4 bg-surface-container-high">
+<span class="font-kicker-label text-kicker-label text-on-surface-variant uppercase mb-2">Total Deduction</span>
+<span class="font-data-mono text-[24px] leading-none text-on-surface font-bold tracking-wider inline-block border-b border-outline pb-1 border-on-surface">0.5012 ETH</span>
+</div>
+</section>
+<!-- Action Buttons -->
+<footer class="flex flex-col gap-3 mt-2">
+<button class="w-full bg-primary-container text-on-primary font-body-md text-body-md py-4 font-medium border border-primary hover:bg-surface-tint transition-colors duration-200 flex items-center justify-center gap-2 group rounded-[6px]">
+<span class="font-data-mono text-[12px] border border-on-primary px-2 py-0.5 rounded-full">SECURE</span>
+                Confirm and fund
+            </button>
+<button class="w-full bg-transparent text-on-surface-variant font-body-md text-body-md py-4 font-medium border border-outline hover:bg-surface-container-low hover:text-on-surface transition-colors duration-200 rounded-[6px]">
+                Cancel
+            </button>
+</footer>
+</main>
+</body></html>
