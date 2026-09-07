@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useAccount } from 'wagmi';
 import { CustomConnectButton } from './CustomConnectButton';
 import styles from './Navbar.module.css';
 
@@ -16,6 +17,7 @@ const NAV_LINKS = [
 export function Navbar() {
   const pathname = usePathname();
   const [theme, setTheme] = useState('dark');
+  const { isConnected } = useAccount();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('fundcaster-theme') || 'dark';
@@ -46,6 +48,14 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
+          {isConnected && (
+            <Link
+              href="/dashboard"
+              className={`${styles.link} ${pathname === '/dashboard' ? styles.linkActive : ''}`}
+            >
+              Dashboard
+            </Link>
+          )}
         </div>
       </div>
 

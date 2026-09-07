@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FundArc - User Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#e9e1d8",
+                      "secondary-container": "#9af2b9",
+                      "surface-container": "#f5ede4",
+                      "on-primary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#aceef6",
+                      "surface-dim": "#e1d9d0",
+                      "on-tertiary-fixed": "#410001",
+                      "on-tertiary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#91d2da",
+                      "tertiary-fixed": "#ffdad5",
+                      "outline-variant": "#bfc8c9",
+                      "primary-fixed-dim": "#90d1d9",
+                      "on-background": "#1e1b16",
+                      "background": "#fff8f2",
+                      "tertiary": "#7a100b",
+                      "secondary": "#056d3f",
+                      "surface-bright": "#fff8f2",
+                      "primary-container": "#0f5c63",
+                      "on-secondary-container": "#0f7143",
+                      "outline": "#6f797a",
+                      "on-primary-fixed": "#002023",
+                      "on-secondary-fixed-variant": "#00522e",
+                      "surface-variant": "#e9e1d8",
+                      "on-surface-variant": "#3f484a",
+                      "on-secondary-fixed": "#00210f",
+                      "surface-container-high": "#efe7de",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#891c15",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#34302a",
+                      "tertiary-fixed-dim": "#ffb4a9",
+                      "on-tertiary-container": "#ffb5aa",
+                      "secondary-fixed": "#9df5bb",
+                      "primary": "#004349",
+                      "inverse-primary": "#90d1d9",
+                      "error": "#ba1a1a",
+                      "on-surface": "#1e1b16",
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#f8efe6",
+                      "tertiary-container": "#9b291f",
+                      "secondary-fixed-dim": "#81d9a1",
+                      "surface-container-low": "#fbf2e9",
+                      "on-primary-fixed-variant": "#004f55",
+                      "surface": "#fff8f2",
+                      "surface-tint": "#21676f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "kicker-label": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg-mobile": [
+                              "Fraunces"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Work Sans"
+                      ],
+                      "display-xl": [
+                              "Fraunces"
+                      ],
+                      "headline-lg": [
+                              "Fraunces"
+                      ]
+              },
+              "fontSize": {
+                      "kicker-label": [
+                              "11px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-xl": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+          .bg-paper-grain {
+              background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+              opacity: 0.03;
+              pointer-events: none;
+              z-index: 50;
+          }
+      </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased relative min-h-screen flex flex-col">
+<!-- Paper Grain Overlay -->
+<div class="fixed inset-0 bg-paper-grain mix-blend-overlay"></div>
+<!-- TopNavBar -->
+<nav class="w-full h-16 flex items-center bg-surface border-b border-outline-variant relative z-10 px-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-center w-full max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-semibold text-primary">
+                FundArc
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95 duration-200" href="#">Discover</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95 duration-200" href="#">Start Fundraiser</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95 duration-200" href="#">How It Works</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95 duration-200" href="#">About</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity duration-200 cursor-pointer active:scale-95 h-10 w-10 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_balance_wallet</span>
+</button>
+<button class="hidden md:flex items-center bg-primary-container text-on-primary font-data-mono text-data-mono px-4 py-2 rounded uppercase border border-primary-container hover:opacity-90 transition-opacity">
+                    Connect Wallet
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16 relative z-10">
+<!-- Profile Summary (Ledger Style) -->
+<section class="mb-16">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-2">
+<span class="font-kicker-label text-kicker-label uppercase text-on-surface-variant">DASHBOARD</span>
+</div>
+<div class="md:col-span-10 border border-outline-variant rounded bg-surface-container-lowest p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">0x7F4...A9B2</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Connected Wallet</p>
+</div>
+<div class="flex gap-12 w-full md:w-auto">
+<!-- Stat Block -->
+<div class="flex flex-col">
+<span class="font-data-mono text-data-mono text-on-surface-variant mb-2">TOTAL CONTRIBUTED</span>
+<div class="border-b border-outline-variant pb-1 w-full">
+<span class="font-data-mono text-[24px] font-bold text-on-surface">14.5 ETH</span>
+</div>
+</div>
+<!-- Stat Block -->
+<div class="flex flex-col">
+<span class="font-data-mono text-data-mono text-on-surface-variant mb-2">ACTIVE CAMPAIGNS</span>
+<div class="border-b border-outline-variant pb-1 w-full">
+<span class="font-data-mono text-[24px] font-bold text-on-surface">3</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tabbed Area -->
+<section>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-8">
+<div class="md:col-span-2">
+<span class="font-kicker-label text-kicker-label uppercase text-on-surface-variant">MY CONTRIBUTIONS</span>
+</div>
+<div class="md:col-span-10 flex border-b border-outline-variant">
+<button class="px-6 py-3 font-data-mono text-data-mono text-primary border-b-2 border-primary font-bold">CONTRIBUTIONS</button>
+<button class="px-6 py-3 font-data-mono text-data-mono text-on-surface-variant hover:text-primary transition-colors">WATCHLIST</button>
+<button class="px-6 py-3 font-data-mono text-data-mono text-on-surface-variant hover:text-primary transition-colors">MY CAMPAIGNS</button>
+</div>
+</div>
+<!-- Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-2 hidden md:block"></div>
+<div class="md:col-span-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="border border-outline-variant rounded bg-surface-container-lowest flex flex-col h-full hover:shadow-sm transition-shadow">
+<div class="h-48 border-b border-outline-variant relative">
+<img class="w-full h-full object-cover rounded-t" data-alt="A highly detailed, minimalist architectural rendering of a modern decentralized finance headquarters. The building features clean geometric lines, massive glass windows, and stark concrete. The scene is bathed in bright, soft daylight, creating a pristine light-mode aesthetic. The color palette focuses on whites, light grays, and subtle petroleum green accents to convey institutional credibility and stability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVpZ0RUc_QasXIsl3j9jO-rmduUGSbEoLLdY9KOC6Pa-Yads54KjM3PEo-65tsGOGEX5JkxSJ_DTOXhMOa2kVwEzQ7nwr3O52J5JXhePq1HZVYClJ0ZnoypfQcU3MpkABTjybKjNYhHHydjFDg_AA17HcNFBI7-4kACiIvT29QDsa6LGdb55cHg75uGDqAIdNZohtAFsdYWQ9q92RpWYo8nn4XprSJube1te3KpoFsZX9ADOLXt7rX"/>
+<div class="absolute top-4 left-4 border border-outline-variant bg-surface-container-lowest px-2 py-1 rounded text-xs font-data-mono text-data-mono flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-error inline-block"></span> LIVE
+                            </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="font-kicker-label text-kicker-label text-on-surface-variant mb-2">[ DEFI ]</div>
+<h3 class="font-headline-lg-mobile text-[24px] font-semibold text-on-surface mb-4 leading-tight">Decentralized Autonomous Reserve</h3>
+<div class="mt-auto">
+<div class="w-full h-1 bg-surface-variant mb-2">
+<div class="h-full bg-primary-container" style="width: 75%"></div>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="font-data-mono text-[10px] text-on-surface-variant mb-1">RAISED / GOAL</span>
+<span class="font-data-mono text-data-mono text-on-surface border-b border-outline-variant pb-0.5">750 / 1000 ETH</span>
+</div>
+<span class="font-data-mono text-[12px] text-on-surface-variant">75%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="border border-outline-variant rounded bg-surface-container-lowest flex flex-col h-full hover:shadow-sm transition-shadow">
+<div class="h-48 border-b border-outline-variant relative">
+<img class="w-full h-full object-cover rounded-t" data-alt="A close-up view of pristine, high-quality printing machinery pressing a complex geometric pattern onto thick, textured archival paper. The ink is a deep petroleum green. The lighting is crisp and cool, emphasizing the tactile quality of the paper and the precision of the mechanics, fitting a modern editorial finance aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA29iRI3RBV8tV8AnC81NvPjxxabeeVVfd4EH3x3RUaIeyjJIEsJqxVXgJjCqI-upF2_8KEK-E920P1SVjIKVZ0_5M3sBTF3mwAxd9djMEeF9YGcEZUntGGE13FpWaEBDG3kurF1sIqNWpEWVIP3cJG3xQPBhF0D4fXK0poVuiCAFePoMd65h_aXo8txW4IhFne29y2ifSYWHXi7N_PSvx6d-K0SfOq8IJpAfil3ptfN8VxCeHzgkGG"/>
+<div class="absolute top-4 left-4 border border-outline-variant bg-surface-container-lowest px-2 py-1 rounded text-xs font-data-mono text-data-mono flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline-variant inline-block"></span> ENDED
+                            </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="font-kicker-label text-kicker-label text-on-surface-variant mb-2">[ INFRASTRUCTURE ]</div>
+<h3 class="font-headline-lg-mobile text-[24px] font-semibold text-on-surface mb-4 leading-tight">Zero-Knowledge Scalability Network</h3>
+<div class="mt-auto">
+<div class="w-full h-1 bg-surface-variant mb-2">
+<div class="h-full bg-secondary" style="width: 100%"></div>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="font-data-mono text-[10px] text-on-surface-variant mb-1">RAISED / GOAL</span>
+<span class="font-data-mono text-data-mono text-on-surface border-b border-outline-variant pb-0.5">500 / 500 ETH</span>
+</div>
+<span class="font-data-mono text-[12px] text-secondary">SUCCESS</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="border border-outline-variant rounded bg-surface-container-lowest flex flex-col h-full hover:shadow-sm transition-shadow">
+<div class="h-48 border-b border-outline-variant relative">
+<img class="w-full h-full object-cover rounded-t" data-alt="A minimalist still life featuring a beautifully bound ledger book with blank, crisp white pages, resting on a clean, light concrete desk. Next to it is a sleek, modern silver pen. The scene is illuminated by soft, natural studio light, creating subtle tonal shadows and emphasizing the tactile, paper-driven aesthetic of classic financial journalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbWN-MFN6_cEOLwKTVZDCeXaeCcwNNkJXnx5BdDZw1vtIChz65gdtxjDI6OwOrZ_eMmBw9eoPsqMLWD10ls_wN8OS5IS35ZVNLdW8JZxe5Tg-P3ghITO3D1zda3b1ruWHevkur1Lkk-evO-9xZWg0vqd2Ya_f2cbS4YGSb3D3B2NHubxRWKG-54177qnUfajOxCKfzWTjYoMGW5sJxM23bQ-DMkY6fhqCj3bxUxi6cY0YqR16qY-QO"/>
+<div class="absolute top-4 left-4 border border-outline-variant bg-surface-container-lowest px-2 py-1 rounded text-xs font-data-mono text-data-mono flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-error inline-block"></span> LIVE
+                            </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="font-kicker-label text-kicker-label text-on-surface-variant mb-2">[ PUBLIC GOODS ]</div>
+<h3 class="font-headline-lg-mobile text-[24px] font-semibold text-on-surface mb-4 leading-tight">Open Source Audit Collective</h3>
+<div class="mt-auto">
+<div class="w-full h-1 bg-surface-variant mb-2">
+<div class="h-full bg-primary-container" style="width: 30%"></div>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="font-data-mono text-[10px] text-on-surface-variant mb-1">RAISED / GOAL</span>
+<span class="font-data-mono text-data-mono text-on-surface border-b border-outline-variant pb-0.5">60 / 200 ETH</span>
+</div>
+<span class="font-data-mono text-[12px] text-on-surface-variant">30%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 bg-surface-container border-t border-outline-variant relative z-10 px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-gutter max-w-container-max mx-auto">
+<div class="col-span-1">
+<div class="font-headline-lg text-headline-lg text-primary mb-4">
+                    FundArc
+                </div>
+<p class="font-data-mono text-data-mono text-on-surface-variant">© 2024 FundArc Protocol. All rights reserved.</p>
+</div>
+<div class="col-span-1 md:col-start-3">
+<a class="block font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors mb-2" href="#">Terms of Service</a>
+<a class="block font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors mb-2" href="#">Privacy Policy</a>
+</div>
+<div class="col-span-1">
+<a class="block font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors mb-2" href="#">Smart Contracts</a>
+<a class="block font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors mb-2" href="#">Audit Reports</a>
+</div>
+<div class="col-span-1">
+<a class="block font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors mb-2" href="#">Governance</a>
+</div>
+</div>
+</footer>
+</body></html>
