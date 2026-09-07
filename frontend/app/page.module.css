@@ -282,12 +282,8 @@
   gap: 24px;
 }
 
-.empty {
+.emptyWrap {
   grid-column: 1 / -1;
-  text-align: center;
-  padding: 80px 20px;
-  font-family: var(--font-sans), sans-serif;
-  color: var(--muted);
 }
 
 @media (max-width: 900px) {

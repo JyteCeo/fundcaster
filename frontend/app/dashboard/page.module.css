@@ -206,39 +206,6 @@
   gap: 24px;
 }
 
-/* Empty states */
-.emptyState {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 80px 24px;
-  text-align: center;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-
-.emptyMessage {
-  font-family: var(--font-sans), sans-serif;
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin: 0;
-}
-
-.emptyLink {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.emptyLink:hover {
-  text-decoration: underline;
-}
-
 /* Connect-wallet state */
 .connectState {
   max-width: 480px;

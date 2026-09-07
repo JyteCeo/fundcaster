@@ -11,6 +11,8 @@ import { getProjectById } from '../../data/projects';
 import { contractAddress, abi } from '../../constants';
 import { FundingConfirmationModal } from '../../components/FundingConfirmationModal';
 import { ContributionSuccessModal } from '../../components/ContributionSuccessModal';
+import { Skeleton } from '../../components/Skeleton';
+import { EmptyState } from '../../components/EmptyState';
 import styles from './page.module.css';
 
 const QUICK_AMOUNTS = [0.05, 0.1, 0.5, 1];
@@ -31,9 +33,61 @@ function initials(name) {
     .toUpperCase();
 }
 
+function ProjectDetailSkeleton() {
+  return (
+    <div className={styles.grid}>
+      <div className={styles.main}>
+        <div className={styles.skeletonHeader}>
+          <Skeleton className={styles.skeletonTag} />
+          <Skeleton className={styles.skeletonTitle} />
+          <Skeleton className={styles.skeletonSubhead} />
+          <Skeleton className={styles.skeletonSubheadShort} />
+        </div>
+
+        <Skeleton className={styles.skeletonCover} />
+
+        <div className={styles.skeletonCreatorRow}>
+          <Skeleton className={styles.skeletonAvatar} />
+          <div className={styles.skeletonCreatorLines}>
+            <Skeleton className={styles.skeletonCreatorName} />
+            <Skeleton className={styles.skeletonCreatorAddress} />
+          </div>
+        </div>
+
+        <div className={styles.skeletonTabs}>
+          {Array.from({ length: 4 }).map((_, index) => (
+            <Skeleton key={index} className={styles.skeletonTabPill} />
+          ))}
+        </div>
+
+        <div className={styles.skeletonBody}>
+          <Skeleton className={styles.skeletonLine} />
+          <Skeleton className={styles.skeletonLine} />
+          <Skeleton className={styles.skeletonLineShort} />
+        </div>
+      </div>
+
+      <div className={styles.sidebar}>
+        <div className={styles.skeletonWidget}>
+          <Skeleton className={styles.skeletonWidgetLine} />
+          <Skeleton className={styles.skeletonProgress} />
+          <Skeleton className={styles.skeletonWidgetLineShort} />
+          <div className={styles.skeletonStatsGrid}>
+            <Skeleton className={styles.skeletonStatBlock} />
+            <Skeleton className={styles.skeletonStatBlock} />
+            <Skeleton className={styles.skeletonStatBlockWide} />
+          </div>
+          <Skeleton className={styles.skeletonButton} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectDetailPage() {
   const params = useParams();
   const [project, setProject] = useState(null);
+  const [notFound, setNotFound] = useState(false);
   const [activeTab, setActiveTab] = useState('story');
   const [isFollowing, setIsFollowing] = useState(false);
   const [ethAmount, setEthAmount] = useState('0.5');
@@ -53,6 +107,8 @@ export default function ProjectDetailPage() {
     const projectData = getProjectById(params.id);
     if (projectData) {
       setProject(projectData);
+    } else {
+      setNotFound(true);
     }
   }, [params.id]);
 
@@ -151,11 +207,29 @@ export default function ProjectDetailPage() {
     setTimeout(() => setShareCopied(false), 3000);
   };
 
+  // Not-found state
+  if (notFound) {
+    return (
+      <main className={styles.page}>
+        <div className={styles.container}>
+          <EmptyState
+            title="Project not found"
+            message="We couldn't find a campaign with that id. It may have been removed, or the link is incorrect."
+            actionLabel="Back to Discover"
+            actionHref="/"
+          />
+        </div>
+      </main>
+    );
+  }
+
   // Loading state
   if (!project) {
     return (
       <main className={styles.page}>
-        <div className={styles.loading}>Loading project...</div>
+        <div className={styles.container}>
+          <ProjectDetailSkeleton />
+        </div>
       </main>
     );
   }

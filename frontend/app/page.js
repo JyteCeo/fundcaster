@@ -1,9 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ProjectCard } from './components/ProjectCard';
+import { CardSkeleton } from './components/Skeleton';
+import { EmptyState } from './components/EmptyState';
 import { projects } from './data/projects';
 import styles from './page.module.css';
+
+const SKELETON_COUNT = 6;
 
 const TABS = [
   { key: 'active', label: 'Active' },
@@ -16,6 +20,13 @@ const featuredProject =
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('active');
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulated initial load; swap for a real loading flag once projects come from a live source.
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const filteredProjects = projects.filter((project) => project.status === activeTab);
   const featuredProgress = featuredProject
@@ -121,12 +132,17 @@ export default function Home() {
           ))}
         </div>
 
-        <div className={styles.grid}>
-          {filteredProjects.length > 0 ? (
+        <div className={styles.grid} aria-busy={isLoading} aria-label="Discover projects">
+          {isLoading ? (
+            Array.from({ length: SKELETON_COUNT }).map((_, index) => <CardSkeleton key={index} />)
+          ) : filteredProjects.length > 0 ? (
             filteredProjects.map((project) => <ProjectCard key={project.id} {...project} />)
           ) : (
-            <div className={styles.empty}>
-              <p>No {activeTab} projects at the moment.</p>
+            <div className={styles.emptyWrap}>
+              <EmptyState
+                title="The ledger is quiet"
+                message={`No ${activeTab} projects at the moment.`}
+              />
             </div>
           )}
         </div>

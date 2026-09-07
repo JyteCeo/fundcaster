@@ -1,0 +1,105 @@
+.block {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, var(--surface), transparent);
+  opacity: 0.6;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block::after {
+    animation: none;
+  }
+}
+
+/* Card skeleton, shaped like the existing ProjectCard */
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.tagRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.tag {
+  width: 60px;
+  height: 18px;
+}
+
+.livePill {
+  width: 40px;
+  height: 14px;
+  border-radius: 99px;
+}
+
+.titleLine {
+  height: 22px;
+  width: 75%;
+  margin-bottom: 10px;
+}
+
+.descLine {
+  height: 13px;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.descLineShort {
+  height: 13px;
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.progress {
+  height: 4px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.statsRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.stat {
+  width: 80px;
+  height: 16px;
+}
+
+.statSmall {
+  width: 30px;
+  height: 14px;
+}
+
+.link {
+  width: 90px;
+  height: 13px;
+}

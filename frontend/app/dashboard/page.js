@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useAccount } from 'wagmi';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { ProjectCard } from '../components/ProjectCard';
+import { EmptyState } from '../components/EmptyState';
 import { getProjectById } from '../data/projects';
 import { mockContributions, watchlistProjectIds, createdProjectIds } from '../data/userActivity';
 import styles from './page.module.css';
@@ -25,15 +26,6 @@ function formatDate(value) {
     month: 'short',
     day: 'numeric',
   });
-}
-
-function EmptyState({ message }) {
-  return (
-    <div className={styles.emptyState}>
-      <p className={styles.emptyMessage}>{message}</p>
-      <Link href="/" className={styles.emptyLink}>Back to Discover</Link>
-    </div>
-  );
 }
 
 export default function DashboardPage() {
@@ -147,7 +139,12 @@ export default function DashboardPage() {
                   })}
                 </ul>
               ) : (
-                <EmptyState message="You haven't backed any campaigns yet." />
+                <EmptyState
+                  title="No contributions yet"
+                  message="You haven't backed any campaigns yet."
+                  actionLabel="Back to Discover"
+                  actionHref="/"
+                />
               )
             )}
 
@@ -168,7 +165,12 @@ export default function DashboardPage() {
                   ))}
                 </div>
               ) : (
-                <EmptyState message="Your watchlist is empty." />
+                <EmptyState
+                  title="Your watchlist is empty"
+                  message="Save campaigns from Discover to keep track of them here."
+                  actionLabel="Back to Discover"
+                  actionHref="/"
+                />
               )
             )}
 
@@ -189,7 +191,12 @@ export default function DashboardPage() {
                   ))}
                 </div>
               ) : (
-                <EmptyState message="You haven't created any campaigns yet." />
+                <EmptyState
+                  title="No campaigns yet"
+                  message="You haven't created any campaigns yet."
+                  actionLabel="Start a fundraiser"
+                  actionHref="/start"
+                />
               )
             )}
           </div>
